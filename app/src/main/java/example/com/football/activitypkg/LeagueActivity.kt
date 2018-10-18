@@ -9,13 +9,25 @@ import example.com.football.modal.Player
 import example.com.football.utilities.EXTRAPLAYER
 import kotlinx.android.synthetic.main.activity_league.*
 
-class LeagueActivity : BaseActivity() {
+class LeagueActivity : BaseActivity()
+{
     var player=Player("","")
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        outState?.putParcelable(EXTRAPLAYER,player)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_league)
     }
 
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        if (savedInstanceState!=null)
+        {
+            player=savedInstanceState.getParcelable(EXTRAPLAYER)
+        }
+    }
     fun menOnClick(view: View)
     {
         womenBtn.isChecked=false
