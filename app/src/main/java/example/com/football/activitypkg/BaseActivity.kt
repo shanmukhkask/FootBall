@@ -1,4 +1,4 @@
-package example.com.football
+package example.com.football.activitypkg
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

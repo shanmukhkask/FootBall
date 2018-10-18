@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="example.com.football.SkillActivity">
+    tools:context="example.com.football.activitypkg.SkillActivity">
 
     <ImageView
         android:id="@+id/imageView4"
@@ -61,22 +61,25 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <ToggleButton
-            android:id="@+id/toggleButton4"
+            android:id="@+id/bigginerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="16dp"
             android:layout_weight="1"
             android:background="@drawable/button_toggle"
+            android:onClick="onBegginerClick"
             android:text="Begginer"
             android:textColor="@color/colorAccent"
             android:textOff="Begginer"
             android:textOn="Begginer" />
 
         <ToggleButton
+            android:id="@+id/ballerBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/button_toggle"
+            android:onClick="onBallerClick"
             android:text="Baller"
             android:textColor="@color/colorAccent"
             android:textOff="Baller "
@@ -93,6 +96,7 @@
         android:layout_marginStart="8dp"
         android:background="@drawable/button_style"
         android:fontFamily="@font/montserrat"
+        android:onClick="onFinish"
         android:text="Finish"
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
