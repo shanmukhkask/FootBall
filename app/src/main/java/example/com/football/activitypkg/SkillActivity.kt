@@ -6,38 +6,35 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
 import example.com.football.R
-import example.com.football.utilities.EXTRA_LEAGUE
-import example.com.football.utilities.EXTRA_SKILL
+import example.com.football.modal.Player
+import example.com.football.utilities.EXTRAPLAYER
 import kotlinx.android.synthetic.main.activity_skill.*
 
-class SkillActivity : AppCompatActivity() {
+class SkillActivity : AppCompatActivity()
+{
 
-    var league=""
-    var skill=""
-    override fun onCreate(savedInstanceState: Bundle?)
-    {
+    lateinit var player: Player
+
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_skill)
-        league=intent.getStringExtra(EXTRA_LEAGUE)
-      //  Toast.makeText(this,league,Toast.LENGTH_SHORT).show()
-
+        player=intent.getParcelableExtra(EXTRAPLAYER)
     }
     fun onBegginerClick(view:View)
     {
         ballerBtn.isChecked=false
-        skill="Begginer"
+        player.skill="Begginer"
     }
     fun onBallerClick(view: View) {
         bigginerButton.isChecked=false
-        skill="Baller"
+        player.skill="Baller"
     }
     fun onFinish(view: View)
     {
-        if (skill !="")
+        if (player.skill !="")
         {
             val intent=Intent(this,FinishActivity::class.java)
-            intent.putExtra(EXTRA_LEAGUE,league)
-            intent.putExtra(EXTRA_SKILL,skill)
+            intent.putExtra(EXTRAPLAYER,player)
             startActivity(intent)
         }else {
             Toast.makeText(this,"please select a skill level",Toast.LENGTH_SHORT).show()

@@ -5,3 +5,4 @@ package example.com.football.utilities
  */
 const val EXTRA_LEAGUE="league"
 const val EXTRA_SKILL="skill"
+const val EXTRAPLAYER="parcel"
